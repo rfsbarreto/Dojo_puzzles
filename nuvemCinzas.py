@@ -2,24 +2,35 @@ from sys import stdin
 
 readline = stdin.readlines()
 for i in xrange(len(readline)):
-	readline[i]=readline[i].split()
-print(readline)
+	readline[i]=readline[i].split(' ')
+
 lines = int(readline[0][0])
 columns = int(readline[0][1])
 data= readline[1:]
 
-print(data)
-
-print(lines,columns)
 
 def getVectorPositions(data):
-	aeroporto,nuvem=[],[]	
+	airports,clouds=[],[]	
 	for i in xrange(lines):
 		for j in xrange(columns):
 			if data[i][j]=='A' or data[i][j]=='A\n':
-				aeroporto.append(i*columns+j)
+				airports.append(i*columns+j)
 			elif data[i][j]=='*' or data[i][j]=='*\n':
-				nuvem.append(i*columns+j)
-	return [aeroporto,nuvem]
+				clouds.append(i*columns+j)
+	return [airports,clouds]
 
-print(getVectorPositions(data))
+
+def getMinDistance(airport,vet_clouds):
+	min_dis=lines+columns
+	for i in vet_clouds:
+		j=abs(airport-i)
+		temp_dis = j//columns+abs(airport%columns- i%columns)
+		if (temp_dis<min_dis):
+			min_dis=temp_dis
+	return min_dis
+		
+positions_in_integer=getVectorPositions(data)
+airports=positions_in_integer[0]
+clouds=positions_in_integer[1]
+
+

@@ -1,1 +1,1 @@
-Practice of programming in Python with the solution for some puzzles from site dojopuzzles.com
+Solutions for problems and puzzles from sites like Dojopuzzles.com

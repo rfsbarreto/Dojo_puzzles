@@ -1,6 +1,5 @@
 #include<stdio.h>
 
-
 int getNumero(char* c){
 	/*switch (c){
 		case "A"  : return 1;
@@ -48,34 +47,39 @@ int getDiference(char* a, char* b){
 	return getNumero(b) - getNumero(a);
 }
 
-
-
 int main(){
-	int m,t;
+	int t,m;
 	scanf("%d %d",&m,&t);
-	char* musica[m];
 	char* padrao[t];
 	int p[t-1];
+	char* musica[m];
 	int mu[m-1];
-
 	int i;
-	for ( i=0;i<m;i++){
-		char* t=malloc(2*sizeof(char));
-		scanf("%s",t);
-		musica[i]=t;
+	for (i=0;i<m;i++){
+		char* c;
+		scanf("%s",&musica[i]);//=getDiference(c);
 	}
+	printf("A\n");
+	mu[0]=getDiference(musica[0],musica[1]);
+	printf("%d\n",mu[1]);
 	for (i=0;i<m-1;i++){
+		printf("%d \n", i+1);
 		mu[i]=getDiference(musica[i],musica[i+1]);
 	}
+//	scanf("\n");
 
 	for (i=0;i<t;i++){
-		char* t=malloc(2*sizeof(char));
-		scanf("%s",t);
-		scanf("%s",padrao[i]);
+		char* c;
+		scanf("%s",&padrao[i]);
+		//getDiference(padrao[i],padrao[i+1]));
 	}
 	for (i=0;i<t-1;i++){
 		p[i]=getDiference(padrao[i],padrao[i+1]);
 	}
-
-	printf("%s ",mu[0]);
+/*	printf(" %d %d\n", getDiference("A","A#"),getDiference("A","Ab")); 
+	printf("padrao -> %d %d %d %d \n",p[0],p[1],p[2],p[3]);
+	printf("padrao -> %s %s %s %s \n",padrao[0],padrao[1],padrao[2],padrao[3]);
+//	printf("%d", -2 % 5);
+*/
+	return 1;
 }
